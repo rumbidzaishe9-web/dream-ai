@@ -14,7 +14,7 @@ section {
 }
 body {
      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                url('C:/Users/HP/OneDrive/Desktop/dream/bg3.jpg');
+                url('bg3.jpg');
 background-attachment: fixed;
     color: #fff;
     scroll-behavior: smooth;
