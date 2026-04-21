@@ -397,31 +397,7 @@ header.sticky .motto {
     .services-grid {
         grid-template-columns: 1fr; /* 1 column for phones */
     }
-    .whatsapp-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    color: #fff; /* Text stays white */
-    font-weight: 600;
-    transition: 0.3s ease;
-}
-
-.whatsapp-link i {
-    color: #25D366; /* Official WhatsApp Green */
-    font-size: 1.5rem;
-    filter: drop-shadow(0 0 5px rgba(37, 211, 102, 0.4));
-}
-
-/* Hover effect to make it feel "active" */
-.whatsapp-link:hover {
-    color: #25D366; 
-}
-
-.whatsapp-link:hover i {
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 10px rgba(37, 211, 102, 0.8));
-}
+ 
 }
 /* Contact Section Styling */
 .contact-section {
@@ -478,7 +454,37 @@ header.sticky .motto {
     font-size: 0.9rem;
     width: 100%; /* Makes buttons look uniform in cards */
 }
+/* --- WHATSAPP ICON STYLES --- */
+.whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #fff; /* Text stays white */
+    font-weight: 600;
+    transition: 0.3s ease;
+}
 
+.whatsapp-link i {
+    color: #25D366; /* Official WhatsApp Green */
+    font-size: 1.5rem;
+    filter: drop-shadow(0 0 5px rgba(37, 211, 102, 0.4));
+}
+
+/* Hover effect to make it feel "active" */
+.whatsapp-link:hover {
+    color: #25D366; 
+}
+
+.whatsapp-link:hover i {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px rgba(37, 211, 102, 0.8));
+}
+
+/* --- THE REST OF YOUR FOOTER CODE CONTINUES BELOW --- */
+.main-footer {
+    background: rgba(0, 0, 0, 0.6); 
+    ...
 /* Simple Footer */
 
 
