@@ -15,7 +15,7 @@ section {
 }
 
 body {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('bg3.jpg');
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('bg3.jpg');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -24,7 +24,7 @@ body {
     overflow-x: hidden;
 }
 
-/* --- 2. HEADER & NAVIGATION --- */
+/* --- 2. HEADER & LOGO --- */
 header {
     position: fixed;
     top: 0;
@@ -39,7 +39,7 @@ header {
 
 header.sticky {
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
     padding: 15px 10%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -47,26 +47,21 @@ header.sticky {
 .brand-container {
     display: flex;
     flex-direction: column;
-    line-height: 1.2;
 }
 
 .logo {
     font-size: 1.7rem;
     font-weight: 800;
-    letter-spacing: 1px;
     text-transform: uppercase;
     color: #f0f0f0;
     animation: colorShift 3s infinite alternate;
 }
-
-.logo span { font-weight: 900; }
 
 .motto {
     font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 3px;
     color: #aaa;
-    font-weight: 400;
     margin-top: -2px;
 }
 
@@ -80,11 +75,10 @@ header.sticky {
 .nav-links a {
     text-decoration: none;
     color: #fff;
-    font-weight: 500;
     transition: 0.3s;
 }
 
-.nav-links a.active, .nav-links a:hover { color: #00d4ff; }
+.nav-links a:hover, .nav-links a.active { color: #00d4ff; }
 
 /* --- 3. HERO SECTION --- */
 .hero {
@@ -98,40 +92,16 @@ header.sticky {
 .hero-content h1 {
     font-size: 4rem;
     font-weight: 800;
-    margin-bottom: 20px;
-    color: #f0f0f0;
     animation: colorShift 5s infinite alternate;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto 30px;
-    color: #ccc;
 }
 
 @keyframes colorShift {
     0% { color: #f0f0f0; text-shadow: 0 0 0px rgba(0, 212, 255, 0); }
-    100% { color: #00d4ff; text-shadow: 0 0 15px rgba(0, 212, 255, 0.6); }
+    100% { color: #00d4ff; text-shadow: 0 0 20px rgba(0, 212, 255, 0.6); }
 }
 
-/* --- 4. BUTTONS --- */
-.primary-btn, .secondary-btn {
-    padding: 15px 35px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-    display: inline-block;
-}
-
-.primary-btn { background: #00d4ff; color: #000; border: none; }
-.secondary-btn { background: transparent; color: #fff; border: 2px solid #fff; margin-left: 10px; }
-
-.primary-btn:hover { background: #fff; transform: translateY(-3px); }
-
-/* --- 5. SERVICES & PORTFOLIO --- */
-.services-section, .portfolio-section { padding: 100px 8%; text-align: center; }
+/* --- 4. SERVICES SECTION --- */
+.services-section { padding: 100px 8%; text-align: center; }
 
 .services-grid {
     display: grid;
@@ -140,7 +110,7 @@ header.sticky {
     margin-top: 50px;
 }
 
-.service-box, .portfolio-card, .contact-card {
+.service-box {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -149,48 +119,94 @@ header.sticky {
     transition: 0.4s;
 }
 
-.service-box:hover, .portfolio-card:hover, .contact-card:hover {
+.service-box:hover {
     transform: translateY(-10px);
     border-color: #00d4ff;
 }
+
+/* --- 5. PORTFOLIO SECTION (FIXED) --- */
+.portfolio-section { padding: 100px 8%; }
 
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
+    margin-top: 50px;
 }
 
-/* --- 6. CONTACT SECTION & WHATSAPP --- */
+.portfolio-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    overflow: hidden;
+    transition: 0.4s ease;
+}
+
+.project-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.portfolio-card:hover .project-image img { transform: scale(1.1); }
+
+.project-info { padding: 30px; }
+
+.category {
+    color: #00d4ff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* --- 6. CONTACT & WHATSAPP --- */
 .contact-section { padding: 100px 8%; text-align: center; }
 
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns for Desktop */
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    margin: 50px 0;
+    margin-top: 50px;
+}
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 50px 30px;
+    border-radius: 30px;
+    transition: 0.4s;
 }
 
 .whatsapp-link {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
     text-decoration: none;
 }
 
 .whatsapp-link i {
     color: #25D366;
-    font-size: 5rem; 
-    filter: drop-shadow(0 0 12px rgba(37, 211, 102, 0.4));
+    font-size: 5rem;
+    filter: drop-shadow(0 0 15px rgba(37, 211, 102, 0.4));
     transition: 0.3s;
 }
-
-.whatsapp-link:hover i { transform: scale(1.1); }
 
 /* --- 7. FOOTER --- */
 .main-footer {
     background: rgba(0, 0, 0, 0.8);
-    padding: 60px 8% 30px;
+    padding: 80px 8% 40px;
     border-top: 2px solid rgba(0, 212, 255, 0.3);
 }
 
@@ -200,9 +216,9 @@ header.sticky {
     gap: 50px;
 }
 
-/* --- 8. MASTER RESPONSIVENESS (LAST SECTION) --- */
+/* --- 8. MASTER RESPONSIVENESS (MOBILE FIX) --- */
 @media (max-width: 992px) {
-    /* FORCE CONTACT CARDS TO STACK */
+    /* STACK CONTACT CARDS */
     .contact-grid {
         display: flex !important;
         flex-direction: column !important;
@@ -210,15 +226,19 @@ header.sticky {
         gap: 30px !important;
     }
 
-    .contact-card {
-        width: 100% !important;
-        max-width: 450px;
+    /* STACK PORTFOLIO CARDS */
+    .portfolio-grid {
+        grid-template-columns: 1fr !important;
     }
 
-    /* Force Services and Portfolio to stack */
-    .services-grid, .portfolio-grid {
+    /* STACK SERVICES */
+    .services-grid {
         grid-template-columns: 1fr !important;
-        max-width: 500px;
+    }
+
+    .contact-card, .portfolio-card, .service-box {
+        width: 100% !important;
+        max-width: 480px;
         margin: 0 auto;
     }
 
@@ -226,7 +246,7 @@ header.sticky {
     
     .whatsapp-link i { font-size: 4rem !important; }
 
-    .nav-links { display: none; } /* Mobile menu hidden for now */
+    .nav-links { display: none; }
     
     .footer-content {
         grid-template-columns: 1fr;
