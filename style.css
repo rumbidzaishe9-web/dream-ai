@@ -453,6 +453,27 @@ header.sticky .motto {
     font-size: 0.9rem;
     width: 100%; /* Makes buttons look uniform in cards */
 }
+/* --- CONTACT CARD ICON (Keep it consistent) --- */
+.contact-icon i.fa-whatsapp {
+    color: #25D366; /* Official WhatsApp Green */
+    font-size: 3rem; /* Matches your other contact icons */
+    filter: drop-shadow(0 0 10px rgba(37, 211, 102, 0.3));
+    margin-bottom: 20px;
+}
+
+/* --- ENSURE BUTTONS IN CARDS ARE UNIFORM --- */
+.contact-card .primary-btn {
+    display: inline-block;
+    width: 100%; /* Makes the button fill the card width */
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Hover effect specific to the WhatsApp icon when the card is hovered */
+.contact-card:hover i.fa-whatsapp {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 20px rgba(37, 211, 102, 0.6));
+}
 .whatsapp-link {
     display: flex;
     flex-direction: column;
