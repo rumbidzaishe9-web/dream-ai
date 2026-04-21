@@ -454,31 +454,29 @@ header.sticky .motto {
     font-size: 0.9rem;
     width: 100%; /* Makes buttons look uniform in cards */
 }
-/* --- WHATSAPP ICON STYLES --- */
+/* --- UPDATED WHATSAPP ICON SIZE --- */
 .whatsapp-link {
     display: inline-flex;
+    flex-direction: column; /* Stacks icon above text to match your cards */
     align-items: center;
-    gap: 10px;
+    gap: 15px;
     text-decoration: none;
-    color: #fff; /* Text stays white */
+    color: #fff;
     font-weight: 600;
     transition: 0.3s ease;
 }
 
 .whatsapp-link i {
-    color: #25D366; /* Official WhatsApp Green */
-    font-size: 1.5rem;
-    filter: drop-shadow(0 0 5px rgba(37, 211, 102, 0.4));
-}
-
-/* Hover effect to make it feel "active" */
-.whatsapp-link:hover {
     color: #25D366; 
+    /* Match this to your .contact-icon or .service-box .icon size */
+    font-size: 3rem; 
+    filter: drop-shadow(0 0 8px rgba(37, 211, 102, 0.3));
+    margin-bottom: 10px;
 }
 
 .whatsapp-link:hover i {
     transform: scale(1.1);
-    filter: drop-shadow(0 0 10px rgba(37, 211, 102, 0.8));
+    filter: drop-shadow(0 0 15px rgba(37, 211, 102, 0.6));
 }
 
 /* --- THE REST OF YOUR FOOTER CODE CONTINUES BELOW --- */
