@@ -1,30 +1,33 @@
-/* --- 1. GENERAL RESET & BASE --- */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 html {
     scroll-behavior: smooth;
 }
 
 section {
-    scroll-margin-top: 80px;
+    scroll-margin-top: 80px; /* Prevents header from covering the title */
 }
-
 body {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('bg3.jpg');
-    background-attachment: fixed;
+     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('C:/Users/HP/OneDrive/Desktop/dream/bg3.jpg');
+background-attachment: fixed;
+    color: #fff;
+    scroll-behavior: smooth;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: #ffffff;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
 }
 
-/* --- 2. HEADER & LOGO --- */
+/* Header/Navigation */
 header {
     position: fixed;
     top: 0;
@@ -37,32 +40,62 @@ header {
     z-index: 1000;
 }
 
+/* Glassmorphism effect on scroll */
 header.sticky {
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(10px);
     padding: 15px 10%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-
 .brand-container {
     display: flex;
     flex-direction: column;
-}
-
+    line-height: 1.2;
+    }
 .logo {
-    font-size: 1.7rem;
+   font-size: 1.7rem;
     font-weight: 800;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    color: #f0f0f0;
-    animation: colorShift 3s infinite alternate;
+    /* This sets the base color to off-white */
+    color: #f0f0f0; 
+    /* This applies the animation: 
+       'colorShift' = name, 
+       3s = duration, 
+       infinite = loops forever, 
+       alternate = smooth transition back and forth */
+    animation: colorShift 3s infinite alternate; 
 }
 
+.logo span {
+
+    font-weight: 900;
+}
+
+/* The Animation Logic */
+@keyframes colorShift {
+    0% {
+        color: #f0f0f0; /* Off-white */
+        text-shadow: 0 0 0px rgba(0, 212, 255, 0);
+    }
+    100% {
+        color: #00d4ff; /* Dream AI Blue */
+        /* Adding a slight glow for that 'AI' feel */
+        text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    }
+}
 .motto {
     font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: #aaa;
-    margin-top: -2px;
+    color: #aaa; /* Subtle grey so it looks sleek */
+    font-weight: 400;
+    margin-top: -2px; /* Pulls it closer to the logo */
+}
+
+/* Optional: Change motto color on scroll if header becomes sticky */
+header.sticky .motto {
+    color: #eee;
 }
 
 .nav-links {
@@ -70,19 +103,32 @@ header.sticky {
     list-style: none;
 }
 
-.nav-links li { margin: 0 20px; }
+.nav-links li {
+    margin: 0 20px;
+}
 
 .nav-links a {
     text-decoration: none;
     color: #fff;
+    font-weight: 500;
     transition: 0.3s;
+    
+}
+.nav-links a.active {
+    color: #00d4ff !important;
+    font-weight: bold;
+}
+.nav-links a:hover {
+    color: #00d4ff;
 }
 
-.nav-links a:hover, .nav-links a.active { color: #00d4ff; }
-
-/* --- 3. HERO SECTION --- */
+/* Hero Section */
 .hero {
     height: 100vh;
+    width: 100%;
+   background: transparent;
+    background-size: cover;
+    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -90,19 +136,124 @@ header.sticky {
 }
 
 .hero-content h1 {
-    font-size: 4rem;
+   font-size: 4rem;
     font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+    /* Base color off-white */
+    color: #f0f0f0; 
+    /* Applying the same animation from the logo */
     animation: colorShift 5s infinite alternate;
 }
 
-@keyframes colorShift {
-    0% { color: #f0f0f0; text-shadow: 0 0 0px rgba(0, 212, 255, 0); }
-    100% { color: #00d4ff; text-shadow: 0 0 20px rgba(0, 212, 255, 0.6); }
+.hero-content h1 span {
+    /* We can keep the span bold, the animation will 
+       affect the entire H1 including this span */
+    font-weight: 800;
 }
 
-/* --- 4. SERVICES SECTION --- */
-.services-section { padding: 100px 8%; text-align: center; }
+/* Ensure your keyframes are at the bottom of your CSS file */
+@keyframes colorShift {
+    0% {
+        color: #f0f0f0; /* Off-white */
+        text-shadow: 0 0 0px rgba(0, 212, 255, 0);
+    }
+    100% {
+        color: #a8e6f3; /* Dream AI Blue */
+        text-shadow: 0 0 15px rgba(166, 232, 245, 0.6); /* Slightly stronger glow for the large text */
+    }
+}
 
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: #ccc;
+}
+
+/* Buttons */
+.cta-btn, .primary-btn {
+    background: #00d4ff;
+    color: #000;
+    padding: 15px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.secondary-btn {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 15px 35px;
+    border-radius: 30px;
+    margin-left: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cta-btn:hover, .primary-btn:hover {
+    background: #fff;
+    transform: translateY(-3px);
+}
+/* --- Mobile Responsiveness --- */
+
+@media (max-width: 768px) {
+    /* Adjust Header Padding */
+    header {
+        padding: 15px 5%;
+    }
+
+    /* Make Hero Text smaller so it doesn't overflow */
+    .hero-content h1 {
+        font-size: 2.5rem; /* Reduced from 4rem */
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    /* Stack buttons vertically on very small screens */
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .secondary-btn {
+        margin-left: 0; /* Remove the side margin from desktop */
+    }
+
+    /* Hide the horizontal nav links and Get Started button 
+       (Usually, you'd replace these with a 'Hamburger' menu) */
+    .nav-links, .cta-nav {
+        display: none; 
+    }
+}
+/* Services Section Layout */
+.services-section {
+    padding: 100px 8%;
+    background: transparent;
+    text-align: center;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.section-title span {
+    color: #00d4ff;
+    animation: colorShift 3s infinite alternate; /* Reuse your animation */
+}
+
+/* The Grid: 3 Columns per row (results in 2 rows for 6 items) */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -110,43 +261,77 @@ header.sticky {
     margin-top: 50px;
 }
 
+/* The "Cute Blurry Box" (Glassmorphism) */
 .service-box {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05); /* Very transparent white */
+    backdrop-filter: blur(12px);           /* The blurry effect */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Thin subtle border */
     padding: 40px 30px;
-    border-radius: 20px;
-    transition: 0.4s;
+    border-radius: 20px;                   /* Cute rounded corners */
+    transition: all 0.4s ease;
+    cursor: default;
 }
 
 .service-box:hover {
     transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.1);
     border-color: #00d4ff;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* --- 5. PORTFOLIO SECTION (FIXED) --- */
-.portfolio-section { padding: 100px 8%; }
+.service-box .icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.service-box h3 {
+    color: #00d4ff;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.service-box p {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+/* Portfolio Section Styling */
+.portfolio-section {
+    padding: 100px 8%;
+    background: transparent;
+}
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* 2 projects per row for a premium feel */
     gap: 40px;
     margin-top: 50px;
 }
 
+/* Glassmorphism Card for Projects */
 .portfolio-card {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 30px;
-    overflow: hidden;
-    transition: 0.4s ease;
+    border-radius: 30px; /* Extra round corners for portfolio */
+    overflow: hidden; /* Clips the image inside the round corners */
+    transition: all 0.4s ease;
 }
 
+.portfolio-card:hover {
+    transform: translateY(-10px);
+    border-color: #00d4ff;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Image Container */
 .project-image {
     width: 100%;
     height: 250px;
     overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .project-image img {
@@ -156,9 +341,14 @@ header.sticky {
     transition: transform 0.6s ease;
 }
 
-.portfolio-card:hover .project-image img { transform: scale(1.1); }
+.portfolio-card:hover .project-image img {
+    transform: scale(1.1); /* Subtle zoom on hover */
+}
 
-.project-info { padding: 30px; }
+/* Project Info Area */
+.project-info {
+    padding: 30px;
+}
 
 .category {
     color: #00d4ff;
@@ -166,29 +356,103 @@ header.sticky {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 10px;
     display: block;
+    margin-bottom: 10px;
 }
 
-/* --- 6. CONTACT & WHATSAPP --- */
-.contact-section { padding: 100px 8%; text-align: center; }
+.project-info h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.project-info p {
+    color: #bbb;
+    font-size: 1rem;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Reusing your secondary-btn styles for the "View Case Study" */
+.project-info .secondary-btn {
+    padding: 12px 30px;
+    font-size: 0.9rem;
+    margin-left: 0; /* Reset margin for card alignment */
+}
+
+/* Responsive Portfolio */
+@media (max-width: 992px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* 1 column on tablets and mobile */
+    }
+}
+/* Mobile Responsiveness: Switch to 1 column on small screens */
+@media (max-width: 992px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .services-grid {
+        grid-template-columns: 1fr; /* 1 column for phones */
+    }
+}
+/* Contact Section Styling */
+.contact-section {
+    padding: 100px 8% 50px;
+    text-align: center;
+    background: transparent;
+}
 
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    margin-top: 50px;
+    margin: 50px 0;
 }
 
+/* Glassmorphism Contact Card */
 .contact-card {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 50px 30px;
     border-radius: 30px;
-    transition: 0.4s;
+    transition: all 0.4s ease;
 }
 
+.contact-card:hover {
+    transform: translateY(-10px);
+    border-color: #00d4ff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.contact-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.contact-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.contact-card p {
+    color: #bbb;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+/* Adjusting buttons for Contact Cards */
+.contact-card .primary-btn, 
+.contact-card .secondary-btn {
+    padding: 12px 30px;
+    font-size: 0.9rem;
+    width: 100%; /* Makes buttons look uniform in cards */
+}
 .whatsapp-link {
     display: flex;
     flex-direction: column;
@@ -202,36 +466,114 @@ header.sticky {
     filter: drop-shadow(0 0 15px rgba(37, 211, 102, 0.4));
     transition: 0.3s;
 }
+/* Simple Footer */
 
-/* --- 7. FOOTER --- */
+
+/* Enhanced Footer Styling */
 .main-footer {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 80px 8% 40px;
-    border-top: 2px solid rgba(0, 212, 255, 0.3);
+    background: rgba(0, 0, 0, 0.6); /* Darker background for contrast */
+    backdrop-filter: blur(20px);
+    border-top: 2px solid rgba(0, 212, 255, 0.3); /* Cyan border for visibility */
+    padding: 60px 8% 30px;
+    margin-top: 50px;
 }
 
 .footer-content {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     gap: 50px;
+    text-align: left;
+    margin-bottom: 40px;
 }
 
-/* --- 8. MASTER RESPONSIVENESS (MOBILE FIX) --- */
+.footer-brand .logo {
+    margin-bottom: 10px;
+}
+
+.footer-motto {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: #888;
+    text-transform: uppercase;
+}
+
+.footer-content h4 {
+    color: #00d4ff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links a, .footer-social a {
+    text-decoration: none;
+    color: #bbb;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover, .footer-social a:hover {
+    color: #00d4ff;
+    padding-left: 5px; /* Tiny movement effect */
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #555;
+    font-size: 0.8rem;
+}
+/* 1. The 'Hidden' State */
+.service-box, .portfolio-card, .contact-card {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95); /* Starts slightly lower and smaller */
+    transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1); /* Professional 'snap' feel */
+    will-change: transform, opacity;
+}
+
+/* 2. The 'Visible' State (Triggered by JS) */
+.reveal-active {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+}
+
+/* 3. The Stagger Effect */
+/* This makes each box wait a tiny bit longer than the one before it */
+.service-box:nth-child(1) { transition-delay: 0.1s; }
+.service-box:nth-child(2) { transition-delay: 0.3s; }
+.service-box:nth-child(3) { transition-delay: 0.4s; }
+.service-box:nth-child(4) { transition-delay: 0.5s; }
+.service-box:nth-child(5) { transition-delay: 0.6s; }
+.service-box:nth-child(6) { transition-delay: 0.7s; }
+/* Mobile Responsiveness for Footer */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .footer-links a:hover {
+        padding-left: 0;
+    }
+}
+/* Responsive Contact Grid */
 @media (max-width: 992px) {
-    /* STACK CONTACT CARDS */
     .contact-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 30px !important;
-    }
-
-    /* STACK PORTFOLIO CARDS */
-    .portfolio-grid {
-        grid-template-columns: 1fr !important;
-    }
-
-    /* STACK SERVICES */
+        grid-template-columns: 1fr; /* Stack on top of each other on mobile */
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        /* STACK SERVICES */
     .services-grid {
         grid-template-columns: 1fr !important;
     }
