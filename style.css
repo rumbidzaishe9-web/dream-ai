@@ -586,9 +586,11 @@ header.sticky .motto {
 /* Responsive Contact Grid */
 @media (max-width: 992px) {
     .contact-grid {
-        grid-template-columns: 1fr; /* Stack on top of each other on mobile */
-        max-width: 500px;
+       grid-template-columns: 1fr !important;
+        max-width: 480px;
         margin-left: auto;
         margin-right: auto;
+        margin: 40px auto !important;
+        gap: 30px !important;
     }
 }
